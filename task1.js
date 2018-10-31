@@ -17,10 +17,17 @@ const myBrother = {
 me.growJSskill();
 myBrother.growJSskill();
 
+const growJSskill = function () {
+    this.JSskill = this.JSskill + 1;
+}
+
 let brothers = [];
-const makeMoreBrothers = function (arr, x) {
-    for (i = 0; i < x; i++)
-    arr.push(myBrother = {name: `Brother ${i}`,
-    JSskill: 0,
-    growJSskill: growJSskill })
+let makeMoreBrothers = function (arr, x) {
+    for (i = 0; i < x; i++) {
+        arr.push({
+            name: `Brother ${i}`,
+            JSskill: 0,
+            growJSskill: growJSskill
+        })
+    }
 };
