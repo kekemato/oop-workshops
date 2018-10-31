@@ -17,13 +17,9 @@ const myBrother = {
 me.growJSskill();
 myBrother.growJSskill();
 
-const growJSskill = function () {
-    this.JSskill = this.JSskill + 1;
-}
-
 let brothers = [];
-let makeMoreBrothers = function (arr, x) {
-    for (i = 0; i < x; i++) {
+const makeMoreBrothers = function (arr, x) {
+    for (i = 0; i <= x; i++) {
         arr.push({
             name: `Brother ${i}`,
             JSskill: 0,
@@ -31,3 +27,17 @@ let makeMoreBrothers = function (arr, x) {
         })
     }
 };
+makeMoreBrothers(brothers, 100);
+console.log(brothers);
+
+const makePerson = function (name, initialSkill) {
+    return {
+        name: name,
+        JSskill: initialSkill,
+        growJSskill: growJSskill
+    }
+}
+const brothers2 =
+    Array(100)
+        .fill(0)
+        .map((e, i) => makePerson(i, 0))
