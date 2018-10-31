@@ -1,12 +1,12 @@
-const Person = function(name){
+const Person = function (name) {
     this.name = name
 }
 
-Person.prototype.sayHello = function(){
+Person.prototype.sayHello = function () {
     console.log(`Hi I'm ${this.name}`)
 }
 
-const me = new Person ('Magda')
+const me = new Person('Magda')
 
 console.log(me)
 me.sayHello()
