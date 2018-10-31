@@ -9,8 +9,11 @@ makeSound: makeSound
 }
 
 cat.makeSound()
-makeSound.apply(cat) //przyjmuje obiekt, który zostanie kontekstem tej funkcji i jakieś argumenty wywowałanego obiektu w []
-makeSound.call(cat) //przyjmuje obiekt, który zostanie kontekstem tej funkcji i jakieś argumenty wywowałanego obiektu bez []
+makeSound.apply(cat, ['Magda', 'Brzozowska']) //przyjmuje obiekt, który zostanie kontekstem tej funkcji i jakieś argumenty wywowałanego obiektu w []
+makeSound.call(cat, 'Magda', 'Brzozowska') //przyjmuje obiekt, który zostanie kontekstem tej funkcji i jakieś argumenty wywowałanego obiektu bez []
 
-makeSound.apply({sound: Woof})
-makeSound.call({sound: Woof})
+makeSound.apply({sound: 'Woof'}, ['Magda', 'Brzozowska'])
+makeSound.call({sound: 'Woof'}, 'Magda', 'Brzozowska')
+
+makeSound('Magda', "Brzozowska")
+cat.makeSound('Magda', "Brzozowska")
