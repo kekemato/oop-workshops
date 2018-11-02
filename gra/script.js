@@ -53,22 +53,22 @@ Game.prototype.composeBoard = function () {
     this.boardArr[this.playerPosition.y][this.playerPosition.x] = 'P'
 }
 
-Game.prototype.startListeningToArrows = function (){
+Game.prototype.startListeningToArrows = function () {
     window.addEventListener(
         'keydown',
         event => {
-            switch(event.key){
+            switch (event.key) {
                 case 'ArrowUp':
                     event.preventDefault
                     this.checkIfMoveIsAvailable(0, -1)
                     break
                 case 'ArrowDown':
                     event.preventDefault
-                    this.checkIfMoveIsAvailable(0, +1)
+                    this.checkIfMoveIsAvailable(0, 1)
                     break
                 case 'ArrowRight':
                     event.preventDefault
-                    this.checkIfMoveIsAvailable(+1, 0)
+                    this.checkIfMoveIsAvailable(1, 0)
                     break
                 case 'ArrowLeft':
                     event.preventDefault
@@ -85,10 +85,10 @@ Game.prototype.checkIfMoveIsAvailable = function (deltaX, deltaY) {
         y: this.playerPosition.y + deltaY
     }
 
-    if(
+    if (
         this.boardArr[newPlayerPosition.y] &&
         this.boardArr[newPlayerPosition.y][newPlayerPosition.x]
-    ){
+    ) {
         this.move(newPlayerPosition)
     }
 }
