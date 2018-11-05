@@ -1,11 +1,9 @@
-makeSound = () => console.log('Meowww!')
+const makeSound = () => console.log('Meowww!')
 
-makeCat = (name) => {
-    return {
+const makeCat = (name) => ({
         name: name,
         makeSound: makeSound
-    }
-}
+    })
 
 const cat = makeCat('Puszek')
 
