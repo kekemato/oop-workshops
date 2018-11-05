@@ -14,6 +14,7 @@ ToDo.prototype.render = function () {
     document.body.innerHTML = ''
     const ul = document.createElement('ul')
 
+    this.makeUI()
 
     this.tasks.forEach(task => {
         const li = document.createElement('li')
@@ -22,6 +23,17 @@ ToDo.prototype.render = function () {
     })
 
     document.body.appendChild(ul)
+}
+
+ToDo.prototype.makeUI = function() {
+    const input = document.createElement('input')
+    const button = document.createElement('button')
+    button.innerText = 'Dodaj zadanie'
+
+    button.addEventListener('click', () => this.addTask(input.value))
+
+    document.body.appendChild(input)
+    document.body.appendChild(button)
 }
 
 function Task(text) {
