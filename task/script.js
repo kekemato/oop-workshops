@@ -1,22 +1,12 @@
-function Cat(name) {
-   this.name = name
+makeSound = () => console.log('Meowww!')
+
+makeCat = (name) => {
+    return {
+        name: name,
+        makeSound: makeSound
+    }
 }
 
-Cat.prototype.makeSound = function () {
-    console.log('Meowww!')
-}
+const cat = makeCat('Puszek')
 
-const cat1 = new Cat('Puszek')
-cat1.makeSound()
-
-// class Cat {
-//     constructor(name){
-//         this.name = name
-//     }
-//     makeSound () {
-//         console.log('Meowww!')
-//     }
-// }
-
-// const cat2 = new Cat('Puszek')
-// cat2.makeSound()
+cat.makeSound()
