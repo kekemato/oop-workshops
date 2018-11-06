@@ -8,7 +8,7 @@ const showNumbers = function innerName(i) {
 showNumbers()
 
 const showNumbersReversed = function innerName2(i) {
-    i = i || 0
+    i = (i === undefined) ? 10 : i
     console.log(i)
 
     if (i > 0 ) innerName2(--i)
