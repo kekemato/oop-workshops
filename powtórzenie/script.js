@@ -1,16 +1,14 @@
 const numbers = [1, 2, 3, 4, 5]
 
-Array.prototype.myOwnFilter = function (func){
-    const newArray = []
+Array.prototype.myOwnFind = function (func){
 
     for (let i = 0; i < this.length; i++) {
         if (func(this[i], i, this)) {
-        newArray.push(this[i])
+        return this[i]
         }
     }
-
-    return newArray
+    return undefined
 }
 
-const result = numbers.myOwnFilter((e) => e % 2 === 0)
+const result = numbers.myOwnFind((e) => e % 2 === 0)
 console.log(result)
