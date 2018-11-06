@@ -1,13 +1,12 @@
-function myOwnForEach(arr, func, thisArg) {
-    for(let i = 0; i < arr.length; i++){
-    func.call(thisArg, arr[i], i, arr)
+Array.prototype.myOwnForEach = function (func, thisArg) {
+    for(let i = 0; i < this.length; i++){
+    func.call(thisArg, this[i], i, this)
     }
 }
 
 let numbers = [1, 2, 3, 4, 5]
 
-const result = myOwnForEach(
-    numbers,
+numbers.myOwnForEach(
     function (e) {
         console.log(e, this)},
         { whateverProperty: 'this will be this'}
