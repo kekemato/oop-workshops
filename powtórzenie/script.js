@@ -1,14 +1,16 @@
 const numbers = [1, 2, 3, 4, 5]
 
-Array.prototype.myOwnMap = function (func){
+Array.prototype.myOwnFilter = function (func){
     const newArray = []
 
     for (let i = 0; i < this.length; i++) {
-        newArray.push(func(this[i], i, this))
+        if (func(this[i], i, this)) {
+        newArray.push(this[i])
+        }
     }
 
     return newArray
 }
 
-const result = numbers.myOwnMap((e) => 2*e)
+const result = numbers.myOwnFilter((e) => e % 2 === 0)
 console.log(result)
