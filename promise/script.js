@@ -1,8 +1,19 @@
-document.body.innerHTML = '<ul>'
+class UserList {
+    constuctor(container) {
+        this.container = container
+        this.users = []
+    }
 
-fetch('https://randomuser.me/api/?results=10')
-    .then(response => response.json())
-    .then(data => data.results.forEach((e) => document.body.innerHTML += `<li>${e.name.first}</li>`))
-    .catch(error => console.log('ERROR!', error))
+    render() {
+        this.container.innerHTML = ''
+        const ul = document.createElement('ul')
 
-document.body.innerHTML += '</ul>'
+        this.users.forEach(user => {
+            const li = document.createElement('li')
+
+            li.innerText = `${name.first} ${name.last}`
+        })
+
+        this.container.appendChild(ul)
+    }
+}
