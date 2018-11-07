@@ -1,16 +1,8 @@
+const promise = fetch('https://random.user.me/api')
 
-// const promise = fetch('https://randomuser.me/api')
+promise
+.then(() => {
+    console.log('Im on the function that will be called when promise is resoled!')
+})
 
-// const promise2 = promise.then(response => response.json())
-
-// const promise3 = promise2.then(data => console.log(data.results[0].name.first))
-
-fetch('https://randomuser.me/api')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.results[0].name.first)
-        return data
-    })
-    .then(data => {
-        console.log(data.results[0].name.last)
-    })
+const promise2 = promise.then(() => { })
