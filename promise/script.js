@@ -28,19 +28,18 @@ class UserList {
         this.users.forEach((user, index, array)=> {
             const li = document.createElement('li')
             const button = document.createElement('button')
-            const span = document.createElement('span')
 
-            span.innerText = `${user.name.first} ${user.name.last}`
-            span.addEventListener('click', () => alert(user.email))
+            li.innerText = `${user.name.first} ${user.name.last}`
+            li.addEventListener('click', () => alert(user.email))
 
             button.innerText = 'usuń'
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation()
                 array.splice(index, 1)
                 this.render()
             })
 
             ul.appendChild(li)
-            li.appendChild(span)
             li.appendChild(button)
 
         })
