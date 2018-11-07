@@ -1,8 +1,2 @@
-const promise = fetch('https://random.user.me/api')
-
-promise
-.then(() => {
-    console.log('Im on the function that will be called when promise is resoled!')
-})
-
-const promise2 = promise.then(() => { })
+fetch('https://randomuser.me/api')
+    .then(response => console.log(response))
