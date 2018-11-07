@@ -1,19 +1,19 @@
 class UserList {
-    constructor(container, number) {
+    constructor(container, numberOfUsers) {
         this.container = container
         this.users = []
-        this.number = number
+        this.numberOfUsers = numberOfUsers
 
         this.init()
     }
 
     init() {
         this.render()
-        this.fetchUsers(this.number)
+        this.fetchUsers()
     }
 
-    fetchUsers(number) {
-        fetch(`https://randomuser.me/api/?results=${number}`)
+    fetchUsers() {
+        fetch(`https://randomuser.me/api/?results=${this.numberOfUsers}`)
             .then(response => response.json())
             .then(data => {
                 this.users = data.results
@@ -25,13 +25,24 @@ class UserList {
         this.container.innerHTML = ''
         const ul = document.createElement('ul')
 
-        this.users.forEach(user => {
+        this.users.forEach((user, index, array)=> {
             const li = document.createElement('li')
+            const button = document.createElement('button')
+            const span = document.createElement('span')
 
-            li.innerText = `${user.name.first} ${user.name.last}`
+            span.innerText = `${user.name.first} ${user.name.last}`
+            span.addEventListener('click', () => alert(user.email))
+
+            button.innerText = 'usuń'
+            button.addEventListener('click', () => {
+                array.splice(index, 1)
+                this.render()
+            })
 
             ul.appendChild(li)
-            li.addEventListener('click', () => alert(user.email))
+            li.appendChild(span)
+            li.appendChild(button)
+
         })
 
         this.container.appendChild(ul)
